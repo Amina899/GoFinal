@@ -765,7 +765,7 @@ func handleReadOrders(w http.ResponseWriter, r *http.Request) {
 	db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
 	rows, err := db.Query("SELECT order_id, goods, adress FROM orders")
 	if err != nil {
-		http.Error(w, "Error reading orders", http.StatusInternalServerError)
+		http.Error(w, "Error reading order", http.StatusInternalServerError)
 		return
 	}
 	defer rows.Close()
@@ -776,7 +776,7 @@ func handleReadOrders(w http.ResponseWriter, r *http.Request) {
 		var o OrdersGet
 		err := rows.Scan(&o.Id, &o.Goods, &o.Adress)
 		if err != nil {
-			http.Error(w, "Error scanning orders", http.StatusInternalServerError)
+			http.Error(w, "Error scanning order", http.StatusInternalServerError)
 			return
 		}
 		orders = append(orders, o)
@@ -785,7 +785,7 @@ func handleReadOrders(w http.ResponseWriter, r *http.Request) {
 	// Encode to JSON and send the response
 	jsonData, err := json.Marshal(orders)
 	if err != nil {
-		http.Error(w, "Error encoding JSON", http.StatusInternalServerError)
+		http.Error(w, "Error encoding JSON!", http.StatusInternalServerError)
 		return
 	}
 
