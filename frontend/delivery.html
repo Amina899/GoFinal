@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:ital,wght@1,300&family=Open+Sans:wght@400;500&family=Roboto+Mono:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="/frontend/js/script.js"></script>
+    <link rel="stylesheet" href="/frontend/css/header-footer-style.css">
+    <link rel="stylesheet" href="/frontend/css/user_acc-style.css">
+    <link rel="stylesheet" href="/frontend/css/cart-style.css">
+    <link rel="stylesheet" href="/frontend/css/wp-style.css" type="text/css">
+</head>
+
+<body>
+<div id="wrapper">
+    <header>
+        <div id="main-wrapper-header">
+            <div class="logo_categories">
+                <div class="logo">
+                    <a href="/"><img src="/frontend/img/icons/logo.jpg"></a>
+                </div>
+                <div class="categories">
+                    <div class="category">
+                        <a href="/catalog?category_id=1" class="category-link">Женщинам</a>
+                    </div>
+                    <div class="category">
+                        <a href="/catalog?category_id=2" class="category-link">Мужчинам</a>
+                    </div>
+                    <div class="category">
+                        <a href="/catalog?category_id=3" class="category-link">Детям</a>
+                    </div>
+                    <div class="category">
+                        <a href="/catalog?is_new=1" class="category-link">Новинки</a>
+                    </div>
+                    <div class="category">
+                        <a href="/catalog?is_best=1" class="category-link">Лучшие товары</a>
+                    </div>
+                    <div class="category">
+                        <a href="#" class="category-link">О нас</a>
+                    </div>
+                </div>
+            </div>
+            <div class="log_bascet">
+                <div class="log, main">
+                    <div class="log_bascet_img">
+                        <img src="/frontend/img/icons/account.png">
+                    </div>
+                    <div class="log_basket-link">
+                        <a href="/signin" class="log-link">Войти</a>
+                    </div>
+                </div>
+                <div class="bascet, main">
+                    <div class="log_bascet_img">
+                        <img src="/frontend/img/icons/bascet.png">
+                    </div>
+                    <div class="log_basket-link">
+                        <a class='bascet-link' href='/cart'>корзина(<span id='cart-count'></span>)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="mailing">
+            <div class="mailing-wrapper">
+                <div class="mailing-texts">
+                    <div class="mailing-texts-t1">
+                                <span>
+                                    Доставка
+                                </span>
+                    </div>
+                    <div class="mailing-texts-t2">
+                                <span>
+                                    <i><p>
+                        Мы стремимся обеспечить максимальное удобство для наших клиентов, предоставляя надежные и быстрые услуги доставки. Вот некоторые ключевые моменты нашей политики доставки:
+                    </p>
+                    <ul>
+                        <li><strong>Бесплатная доставка:</strong> Мы предоставляем бесплатную доставку для всех заказов свыше определенной суммы. Точные условия бесплатной доставки указаны при оформлении заказа.</li>
+                        <li><strong>Сроки доставки:</strong> Мы делаем все возможное, чтобы ваш заказ был отправлен в кратчайшие сроки. Сроки доставки могут варьироваться в зависимости от вашего местоположения и выбранного метода доставки.</li>
+                        <li><strong>Отслеживание заказа:</strong> Все заказы оснащены системой отслеживания, чтобы вы могли контролировать текущее положение вашего заказа в режиме реального времени.</li>
+                        <li><strong>Глобальная доставка:</strong> Мы осуществляем доставку по всему миру, чтобы наши клиенты в разных странах могли наслаждаться нашей стильной одеждой.</li>
+                    </ul>
+                    <p>
+                        Наша цель - сделать процесс доставки максимально простым и эффективным для вас. Мы благодарны за ваш выбор и готовы предоставить вам первоклассный сервис!
+                    </p></i>
+                                </span>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div id="wrapper-footer">
+            <div class="footer-collections">
+                <div class="footer-block-title">
+                    <span>КОЛЛЕКЦИИ</span>
+                </div>
+                <div class="footer-block-subtitle">
+                    <a href="catalog.html?category_id=1"><span>Женщинам(<b id="category_1"></b>)</span></a>
+                </div>
+                <div class="footer-block-subtitle">
+                    <a href="catalog.html?category_id=2"><span>Мужчинам(<b id="category_2"></b>)</span></a>
+                </div>
+                <div class="footer-block-subtitle">
+                    <a href="catalog.html?category_id=3"><span>Детям(<b id="category_3"></b>)</span></a>
+                </div>
+                <div class="footer-block-subtitle">
+                    <a href="catalog.html?is_new=1"><span>Новинки(<b id="category_4"></b>)</span></a>
+                </div>
+                <div class="footer-block-subtitle">
+                    <a href="catalog.html?is_best=1"><span>Лучшие товары(<b id="category_5"></b>)</span></a>
+                </div>
+            </div>
+            <div class="footer-shop">
+                <div class="footer-block-title">
+                    <span>МАГАЗИН</span>
+                </div>
+                <div class="footer-block-subtitle">
+                    <a href="#"><span>О нас</span></a>
+                </div>
+                <div class="footer-block-subtitle">
+                    <a href="#"><span>Доставка</span></a>
+                </div>
+                <div class="footer-block-subtitle">
+                    <a href="#"><span>Работай с нами</span></a>
+                </div>
+                <div class="footer-block-subtitle">
+                    <a href="#"><span>Контакты</span></a>
+                </div>
+            </div>
+            <div class="footer-contacts">
+                <div class="footer-block-title">
+                    <span>МЫ В СОЦИАЛЬНЫХ СЕТЯХ</span>
+                </div>
+                <div class="footer-block-subtitle">
+                    <span style="color: rgb(169, 169, 169); font-size:18px">2024 	&#174; Все права защищены</span>
+                </div>
+                <div class="footer-block-medias">
+                    <a href="#"><div class="footer-block-media-twitter">
+
+                    </div></a>
+                    <a href="#"><div class="footer-block-media-facebook">
+
+                    </div></a>
+                    <a href="#"><div class="footer-block-media-instagram">
+
+                    </div></a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
