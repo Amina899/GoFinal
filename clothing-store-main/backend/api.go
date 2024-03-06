@@ -102,7 +102,7 @@ func main() {
 	mux.HandleFunc("orders/create", handleCreateOrder)
 	mux.HandleFunc("orders/update", handleUpdateOrder)
 	mux.HandleFunc("orders/delete", handleDeleteOrder)
-	assetsDir := "C:/Users/diasi/OneDrive/Desktop/clothing-store-main/frontend"
+	assetsDir := "C:/Users/User/Desktop/clothing-store-main/frontend"
 	mux.Handle("/frontend/", http.StripPrefix("/frontend/", http.FileServer(http.Dir(assetsDir))))
 	mux.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir(filepath.Join(assetsDir, "css")))))
 	mux.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir(filepath.Join(assetsDir, "images")))))
@@ -115,7 +115,7 @@ func main() {
 	}
 }
 func renderHTML(w http.ResponseWriter, filename string) {
-	absPath := filepath.Join("C:\\Users\\diasi\\OneDrive\\Desktop\\clothing-store-main\\frontend", filename)
+	absPath := filepath.Join("C:\\Users\\User\\Desktop\\clothing-store-main\\frontend", filename)
 	tmpl, err := template.ParseFiles(absPath)
 	if err != nil {
 		log.Println("Error parsing template:", err)
@@ -162,7 +162,7 @@ func handleGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 
 	// Create a connection to the database
-	db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	if err != nil {
 		log.Println("Error connecting to the database:", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
@@ -234,7 +234,7 @@ func handleGetCount(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	// Create a connection to the database
-	db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		fmt.Println("Error connecting to the database:", err)
@@ -300,7 +300,7 @@ func handleGetCount(w http.ResponseWriter, r *http.Request) {
 func handleRegistration(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	//подключаемся к нашей базе данных
-	db, _ := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, _ := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	//считать данные из тела запроса
 	body, _ := ioutil.ReadAll(r.Body)
 	//перелисть их в структуру
@@ -335,7 +335,7 @@ func handleRegistration(w http.ResponseWriter, r *http.Request) {
 func handleSignIn(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	//подключаемся к нашей базе данных
-	db, _ := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, _ := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	//считать данные из тела запроса
 	body, _ := ioutil.ReadAll(r.Body)
 	//перелисть их в структуру
@@ -369,7 +369,7 @@ func handleCheckToken(w http.ResponseWriter, r *http.Request) {
 	//разрешаем посещать наш сайт всем
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	//подключаемся к нашей базе данных
-	db, _ := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, _ := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	//считать данные из тела запроса
 	body, _ := ioutil.ReadAll(r.Body)
 	//перелисть их в структуру
@@ -400,7 +400,7 @@ func handleCheckToken(w http.ResponseWriter, r *http.Request) {
 
 func handleOrder(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	db, _ := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, _ := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	//считать данные из тела запроса
 	body, _ := ioutil.ReadAll(r.Body)
 	fmt.Println(body)
@@ -417,7 +417,7 @@ func handleOrder(w http.ResponseWriter, r *http.Request) {
 
 func handleGetOrders(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	db, _ := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, _ := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	//считать данные из тела запроса
 	body, _ := ioutil.ReadAll(r.Body)
 	token := ""
@@ -442,7 +442,7 @@ func generateToken() string {
 func handleCreateUser(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		// Распаковка JSON-запроса в структуру UserReg
-		db, _ := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+		db, _ := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 		var newUser UserReg
 		err := json.NewDecoder(r.Body).Decode(&newUser)
 		if err != nil {
@@ -478,7 +478,7 @@ func handleReadUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Query all users from the database
-	db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	if err != nil {
 		http.Error(w, "Database connection error", http.StatusInternalServerError)
 		log.Println("Database connection error:", err)
@@ -522,7 +522,7 @@ func handleReadUser(w http.ResponseWriter, r *http.Request) {
 // UpdateUser (PUT)
 func handleUpdateUser(w http.ResponseWriter, r *http.Request) {
 	// Распаковка JSON-запроса в структуру UserReg
-	db, _ := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, _ := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	var updatedUser UserReg
 	err := json.NewDecoder(r.Body).Decode(&updatedUser)
 	if err != nil {
@@ -556,7 +556,7 @@ func handleUpdateUser(w http.ResponseWriter, r *http.Request) {
 // DeleteUser (DELETE)
 func handleDeleteUser(w http.ResponseWriter, r *http.Request) {
 	// Получение логина пользователя из запроса
-	db, _ := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, _ := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	login := r.URL.Query().Get("login")
 	if login == "" {
 		http.Error(w, "Login parameter is required", http.StatusBadRequest)
@@ -576,7 +576,7 @@ func handleDeleteUser(w http.ResponseWriter, r *http.Request) {
 // CRUD ДЛЯ GOODS
 func handleGetGoods(w http.ResponseWriter, r *http.Request) {
 	// Fetch all goods from the database
-	db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	if err != nil {
 		http.Error(w, "Error connecting to the database", http.StatusInternalServerError)
 		return
@@ -628,7 +628,7 @@ func handleCreateGood(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Insert the new good into the database
-	db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	if err != nil {
 		http.Error(w, "Error connecting to the database", http.StatusInternalServerError)
 		return
@@ -679,7 +679,7 @@ func handleUpdateGood(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Update the good in the database
-	db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	if err != nil {
 		http.Error(w, "Error connecting to the database", http.StatusInternalServerError)
 		return
@@ -717,7 +717,7 @@ func handleDeleteGood(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Delete the good from the database
-	db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	if err != nil {
 		http.Error(w, "Error connecting to the database", http.StatusInternalServerError)
 		return
@@ -745,7 +745,7 @@ func handleCreateOrder(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Invalid JSON", http.StatusBadRequest)
 			return
 		}
-		db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+		db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 		// Insert new order into the database
 		_, err = db.Exec("INSERT INTO orders (goods, adress) VALUES (?, ?)", newOrder.Goods, newOrder.Adress)
 		if err != nil {
@@ -762,7 +762,7 @@ func handleCreateOrder(w http.ResponseWriter, r *http.Request) {
 // Read (GET)
 func handleReadOrders(w http.ResponseWriter, r *http.Request) {
 	// Query orders from the database
-	db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+	db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 	rows, err := db.Query("SELECT order_id, goods, adress FROM orders")
 	if err != nil {
 		http.Error(w, "Error reading orders", http.StatusInternalServerError)
@@ -805,7 +805,7 @@ func handleUpdateOrder(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Update order in the database
-		db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+		db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 		_, err = db.Exec("UPDATE orders SET goods=?, adress=? WHERE order_id=?", updatedOrder.Goods, updatedOrder.Adress, updatedOrder.Id)
 		if err != nil {
 			http.Error(w, "Error updating order", http.StatusInternalServerError)
@@ -829,7 +829,7 @@ func handleDeleteOrder(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Delete order from the database
-		db, err := sql.Open("mysql", "root:Samsungtab7!@tcp(127.0.0.1:3306)/inordic")
+		db, err := sql.Open("mysql", "root:708204@tcp(127.0.0.1:3306)/inordic")
 		_, err = db.Exec("DELETE FROM orders WHERE order_id=?", id)
 		if err != nil {
 			http.Error(w, "Error deleting order", http.StatusInternalServerError)
