@@ -13,4 +13,5 @@ This project is an online clothing store developed using Go for the backend, MyS
 - Performance optimization for fast loading speeds
 
 ## Setup
-1. Clone the repository:
+1. Clone the repository: https://github.com/Amina899/GoFinal.git
+2. 
